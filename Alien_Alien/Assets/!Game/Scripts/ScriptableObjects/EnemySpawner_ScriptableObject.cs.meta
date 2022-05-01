@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 8c4575af4e659674e9a1a07a6fb8242c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - s_Cone3: {fileID: 7938969659450164929, guid: 6190526dd2f16594792a63b5e7113a01, type: 3}
+  - s_Cone4: {fileID: 14227714392702764, guid: 8b1cb2b423261164e9ee5da68e4dddb9, type: 3}
+  - s_Cone5: {fileID: 4462403889738662242, guid: 28e35c723949b964f9959fb7049b1c9b, type: 3}
+  - s_Cone6: {fileID: 1454076514214652284, guid: 198680adbfe34334caee5aa9b03fa0a6, type: 3}
+  - s_Cone7: {fileID: 3124979742956864547, guid: a796165f1db398f458b48ebac1149084, type: 3}
+  - s_Cone8: {fileID: 3602148875173071398, guid: 92c3c60272f482746a2902177c342e38, type: 3}
+  - s_Cone9: {fileID: 1862450075239776920, guid: 912045ff77f1f0341a4875b9bba3247c, type: 3}
+  - s_Cone10: {fileID: 784760108617994879, guid: c69b69732d8bf2c4bb8c6b3172cb437f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
