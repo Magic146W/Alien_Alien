@@ -11,6 +11,8 @@ public class OutlineShader : MonoBehaviour
     [SerializeField]
     private Color m_oultineColor;
     private Renderer m_outlineRenderer;
+    private  Color[] m_colors = { new Color(0,1,0,1), new Color(1,0,0,1), new Color(1,1,1,1), new Color(1, 0.92f, 0.016f, 1),new Color(0,0,1,1) }; //green,red,white,yellow,blue
+    private float m_scaleToMainBody = 0.0016f;
 
     void Start()
     {
@@ -22,13 +24,13 @@ public class OutlineShader : MonoBehaviour
     {
         GameObject outlineObject = Instantiate(this.gameObject, transform.position,transform.rotation, transform);
         outlineObject.transform.localScale =  new Vector3(
-            outlineObject.transform.localScale.x * 0.0016f,
-            outlineObject.transform.localScale.y * 0.0016f,
-            outlineObject.transform.localScale.z * 0.0016f);
+            outlineObject.transform.localScale.x * m_scaleToMainBody,
+            outlineObject.transform.localScale.y * m_scaleToMainBody,
+            outlineObject.transform.localScale.z * m_scaleToMainBody);
         Renderer rend = outlineObject.GetComponent<Renderer>();
-        
+        int colorChoose = Random.Range(0,5);
         rend.material = outMaterial;
-        rend.material.SetColor("_OutlineColor", color);
+        rend.material.SetColor("_OutlineColor", m_colors[colorChoose]);
         rend.material.SetFloat("_Scale", scaleFactor);
         rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
