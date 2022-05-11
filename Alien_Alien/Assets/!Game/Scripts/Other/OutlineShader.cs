@@ -11,7 +11,7 @@ public class OutlineShader : MonoBehaviour
     [SerializeField]
     private Color m_oultineColor;
     private Renderer m_outlineRenderer;
-    private  Color[] m_colors = { new Color(0,1,0,1), new Color(1,0,0,1), new Color(1,1,1,1), new Color(1, 0.92f, 0.016f, 1),new Color(0,0,1,1) }; //green,red,white,yellow,blue
+    private  Color[] m_colors = { new Color(0,1,0,1), new Color(1,0,0,1), new Color(1,1,1,1), new Color(0,0,1,1) }; //green,red,white,blue
     private float m_scaleToMainBody = 0.0016f;
 
     void Start()
@@ -28,9 +28,10 @@ public class OutlineShader : MonoBehaviour
             outlineObject.transform.localScale.y * m_scaleToMainBody,
             outlineObject.transform.localScale.z * m_scaleToMainBody);
         Renderer rend = outlineObject.GetComponent<Renderer>();
-        int colorChoose = Random.Range(0,5);
+        int colorChoose = Random.Range(0,4);
         rend.material = outMaterial;
         rend.material.SetColor("_OutlineColor", m_colors[colorChoose]);
+        rend.material.SetColor("_Color", m_colors[colorChoose]);
         rend.material.SetFloat("_Scale", scaleFactor);
         rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 

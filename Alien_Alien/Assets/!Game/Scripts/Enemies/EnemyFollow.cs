@@ -11,14 +11,14 @@ public class EnemyFollow : MonoBehaviour
     //[SerializeField] EnemyData eData;
 
     private Transform m_player;
-    private float m_speed = 30; //Add scriptable object in awake
+    private float m_speed = 4; //Add scriptable object in awake
 
     private void Awake()
     {
         m_player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         ChasePlayer();
     }

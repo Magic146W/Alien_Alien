@@ -40,7 +40,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2717624665478083264}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3.6
@@ -179,10 +179,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: IS_2_Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 3157366255316228712, guid: 3cda93cac1f826d43a7403ed38626d55, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3196305161893274873, guid: 3cda93cac1f826d43a7403ed38626d55, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -230,9 +226,8 @@ PrefabInstance:
     - target: {fileID: 5085525792964796642, guid: 3cda93cac1f826d43a7403ed38626d55, type: 3}
       propertyPath: m_colorJoystick
       value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3157366255316228713, guid: 3cda93cac1f826d43a7403ed38626d55, type: 3}
+      objectReference: {fileID: 2929252283123773951, guid: 38e4a0cd8ec334146b62fd131f43dabd, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cda93cac1f826d43a7403ed38626d55, type: 3}
 --- !u!4 &4691013302753112690 stripped
 Transform:

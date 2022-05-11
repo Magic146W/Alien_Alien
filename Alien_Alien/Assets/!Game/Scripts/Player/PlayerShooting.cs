@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PlayerShooting: MonoBehaviour
 {
-    private Transform m_target;
     List<Collider> m_enemiesInRange = new List<Collider>();
-    private SphereCollider m_sphereCollider;
     private float m_timeToShoot = 2f;
+    private Material m_playerMaterial;
 
     void Start()
     {
-        m_sphereCollider = GetComponent<SphereCollider>();
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        m_playerMaterial = GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material;
+        InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
 
     private void FixedUpdate()
@@ -22,39 +21,41 @@ public class PlayerShooting: MonoBehaviour
 
     void UpdateTarget()
     {
-        Debug.Log("0.5s?");
-
         float shortestDistance = Mathf.Infinity;
         GameObject neareastEnemy = null;
-
         foreach (Collider enemy in m_enemiesInRange)
         {
             if (enemy == null)
             {
                 m_enemiesInRange.Remove(enemy);
+                return;
             }
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
 
-            if (distanceToEnemy <  shortestDistance)
+            if (distanceToEnemy < shortestDistance)
             {
                 shortestDistance = distanceToEnemy;
                 neareastEnemy = enemy.gameObject;
             }
         }
-        if (neareastEnemy!=null)
+        if (neareastEnemy != null)
         {
             ShootNearest(neareastEnemy);
         }
     }
 
     private void ShootNearest(GameObject target)
-    {     
-        if (m_timeToShoot > 2)
+    {
+        if (m_timeToShoot > 0.7)
         {
-            Destroy(target,0.5f);
+            Material material = target.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Renderer>().material;
+            if (m_playerMaterial.color == material.color)
+            {
+                Destroy(target, 0.5f);
+            }
             m_timeToShoot = 0;
         }
-        
+
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -63,7 +64,7 @@ public class PlayerShooting: MonoBehaviour
         {
             if (!m_enemiesInRange.Contains(collider))
             {
-            m_enemiesInRange.Add(collider);
+                m_enemiesInRange.Add(collider);
             }
         }
     }

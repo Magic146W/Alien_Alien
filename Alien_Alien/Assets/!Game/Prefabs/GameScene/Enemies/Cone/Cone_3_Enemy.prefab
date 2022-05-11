@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4160311206617435185, guid: 4b75d5410fe552b4fa8e2f11545f4d5d, type: 3}
+      propertyPath: m_Radius
+      value: 3.6
+      objectReference: {fileID: 0}
     - target: {fileID: 6884113097837620231, guid: 4b75d5410fe552b4fa8e2f11545f4d5d, type: 3}
       propertyPath: m_Name
       value: Cone_3_Enemy

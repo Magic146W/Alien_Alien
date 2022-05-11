@@ -7,7 +7,7 @@ public class PlayerMovementController: MonoBehaviour
     [SerializeField]
     private FixedJoystick m_moveJoystick;
 
-    private float moveSpeed = 0.5f;
+    private float moveSpeed = 0.6f;
 
 
     void FixedUpdate()
