@@ -7,10 +7,17 @@ public class PlayerShooting: MonoBehaviour
     List<Collider> m_enemiesInRange = new List<Collider>();
     private float m_timeToShoot = 2f;
     private Material m_playerMaterial;
+    GameObject m_playerObject;
+
+    [SerializeField]
+    private GameObject m_bullet;
+
+    private float m_bulletSpeed = 10000;
 
     void Start()
     {
-        m_playerMaterial = GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material;
+        m_playerObject = GameObject.FindGameObjectWithTag("Player");
+        m_playerMaterial = m_playerObject.GetComponent<Renderer>().material;
         InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
 
@@ -46,16 +53,28 @@ public class PlayerShooting: MonoBehaviour
 
     private void ShootNearest(GameObject target)
     {
-        if (m_timeToShoot > 0.7)
+        if (m_timeToShoot > 1)
         {
-            Material material = target.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Renderer>().material;
-            if (m_playerMaterial.color == material.color)
-            {
-                Destroy(target, 0.5f);
-            }
+            GameObject enemy = target.transform.GetChild(0).GetChild(0).gameObject;
+            Material material = enemy.GetComponent<Renderer>().material;
+            ShotBullet(target);
             m_timeToShoot = 0;
+
+
+
+            //if (m_playerMaterial.color == material.color)
+            //{
+            //    Destroy(target, 0.5f);
+            //}
         }
 
+    }
+
+    private void ShotBullet(GameObject target)
+    {
+        GameObject instantiated = Instantiate(m_bullet, transform.position, transform.rotation);
+        instantiated.GetComponent<Renderer>().material.color = m_playerMaterial.color;
+        instantiated.GetComponent<Rigidbody>().AddForce((target.transform.position - instantiated.transform.position).normalized *m_bulletSpeed);
     }
 
     private void OnTriggerEnter(Collider collider)

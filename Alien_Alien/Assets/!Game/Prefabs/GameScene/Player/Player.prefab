@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 6584010077462035397}
   - component: {fileID: 3725438526864596296}
   m_Layer: 0
-  m_Name: ShootingRange
+  m_Name: Shooting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
