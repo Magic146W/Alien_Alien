@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2043942974120214071}
   - component: {fileID: 5997132416162860989}
-  m_Layer: 0
+  - component: {fileID: 8947621423755690283}
+  m_Layer: 7
   m_Name: Hurt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +46,23 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.6
   m_Center: {x: 0, y: 4.5, z: 0}
+--- !u!114 &8947621423755690283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2717624665478083264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a6a3111b88f9e4bb6ed82dec99c102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TMDeath: {fileID: 0}
+  m_textMeshEnable: {fileID: 0}
+  m_hp1: {fileID: 0}
+  m_hp2: {fileID: 0}
+  m_hp3: {fileID: 0}
 --- !u!1 &7222962514283682183
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +74,7 @@ GameObject:
   - component: {fileID: 3730417840245688990}
   - component: {fileID: 6584010077462035397}
   - component: {fileID: 3725438526864596296}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shooting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2c166dd6f89a1469fa13ce26081ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_bullet: {fileID: 660600939916938287, guid: 50d56ace7cdd7e54b8b01b2c4c9e372b, type: 3}
 --- !u!1 &9185501696535978016
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,9 +133,9 @@ GameObject:
   - component: {fileID: 8529480654537168838}
   - component: {fileID: -2781135366901335388}
   - component: {fileID: 250564839}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72863fb6516f31b428c8e7821e58b5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveJoystick: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_moveJoystick: {fileID: 0}
 --- !u!54 &250564839
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -178,6 +197,14 @@ PrefabInstance:
     - target: {fileID: 2814853330358320707, guid: 3cda93cac1f826d43a7403ed38626d55, type: 3}
       propertyPath: m_Name
       value: IS_2_Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814853330358320707, guid: 3cda93cac1f826d43a7403ed38626d55, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814853330358320707, guid: 3cda93cac1f826d43a7403ed38626d55, type: 3}
+      propertyPath: m_TagString
+      value: PlayerMaterial
       objectReference: {fileID: 0}
     - target: {fileID: 3196305161893274873, guid: 3cda93cac1f826d43a7403ed38626d55, type: 3}
       propertyPath: m_RootOrder
@@ -226,7 +253,7 @@ PrefabInstance:
     - target: {fileID: 5085525792964796642, guid: 3cda93cac1f826d43a7403ed38626d55, type: 3}
       propertyPath: m_colorJoystick
       value: 
-      objectReference: {fileID: 2929252283123773951, guid: 38e4a0cd8ec334146b62fd131f43dabd, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cda93cac1f826d43a7403ed38626d55, type: 3}
 --- !u!4 &4691013302753112690 stripped

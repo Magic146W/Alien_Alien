@@ -92,7 +92,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 591e10e1d7af0354dbf02c765334a19e, type: 2}
+  - {fileID: 2100000, guid: b030e5b4cad7052438305038d2b092bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 7981732355706792924}
   m_Layer: 0
   m_Name: gun
-  m_TagString: Untagged
+  m_TagString: PlayerMaterial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

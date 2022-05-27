@@ -10,17 +10,24 @@ public class EnemyFollow : MonoBehaviour
     private Rigidbody m_rb;
     //[SerializeField] EnemyData eData;
 
+
+    PlayerHealth m_playerHealth;
     private Transform m_player;
     private float m_speed = 4; //Add scriptable object in awake
 
     private void Awake()
     {
-        m_player = GameObject.FindGameObjectWithTag("Player").transform;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        m_playerHealth = player.transform.GetChild(2).GetComponent<PlayerHealth>();
+        m_player = player.transform;
     }
 
     private void FixedUpdate()
     {
-        ChasePlayer();
+        if (m_playerHealth.Dead == false)
+        {
+            ChasePlayer();
+        }
     }
 
     private void ChasePlayer()

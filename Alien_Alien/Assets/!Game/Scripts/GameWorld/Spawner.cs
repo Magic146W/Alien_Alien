@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class Spawner: MonoBehaviour
 {
     //[SerializeField] EnemyData eData;
     //private int damage;
@@ -11,11 +11,12 @@ public class Spawner : MonoBehaviour
     //Health player;
     //Points points;  
     //[SerializeField] int spawnChild;
-    
+
     private GameObject m_player;
-    [SerializeField] 
+    [SerializeField]
     GameObject m_triangleCone;
     float m_timer;
+    PlayerHealth m_playerHealth;
 
     private float m_maxZSpawnPoint = 40;
     private float m_minZSpawnPoint = -40;
@@ -29,6 +30,7 @@ public class Spawner : MonoBehaviour
         //health = eData.health;
         //speed = eData.speed;
         m_player = GameObject.FindGameObjectWithTag("Player");
+        m_playerHealth = m_player.transform.GetChild(2).GetComponent<PlayerHealth>();
         m_timer = 0;
     }
 
@@ -43,14 +45,18 @@ public class Spawner : MonoBehaviour
 
     void FixedUpdate()
     {
-        m_timer += Time.deltaTime;
-        if (m_timer > 2)
+        if (m_playerHealth.Dead == false)
         {
-            Vector3 spawnTransform = CalculateSpawnPoint();     
-            Instantiate(m_triangleCone, spawnTransform, Quaternion.identity);
-            m_timer = 0;
-        }
 
+            m_timer += Time.deltaTime;
+            if (m_timer > 2)
+            {
+                Vector3 spawnTransform = CalculateSpawnPoint();
+                Instantiate(m_triangleCone, spawnTransform, Quaternion.identity);
+                m_timer = 0;
+            }
+
+        }
         //if (!player.dead)
         //{
         //    Vector3 follow = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
@@ -68,7 +74,7 @@ public class Spawner : MonoBehaviour
 
         do
         {
-            spawnPosition.x = Random.Range(m_minXSpawnPoint,m_maxXSpawnPoint);
+            spawnPosition.x = Random.Range(m_minXSpawnPoint, m_maxXSpawnPoint);
             spawnPosition.z = Random.Range(m_minZSpawnPoint, m_maxZSpawnPoint);
 
         } while (Vector3.Distance(m_player.transform.position, spawnPosition) < 15);

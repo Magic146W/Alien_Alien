@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Simulator
+  m_Title: Hierarchy
   m_RootView: {fileID: 10}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -39,9 +39,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 529
+    x: 533
     y: 0
-    width: 1060
+    width: 1067
     height: 701
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -69,12 +69,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1589
+    width: 1600
     height: 701
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 88
+  controlID: 93
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1266
+    x: 1275
     y: 0
-    width: 323
+    width: 325
     height: 286
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -120,12 +120,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 701
-    width: 1589
+    width: 1600
     height: 286
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 62
+  controlID: 66
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 101
+  controlID: 23
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,12 +166,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1589
+    x: 1600
     y: 0
-    width: 331
+    width: 320
     height: 987
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -195,7 +195,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 529
+    width: 533
     height: 701
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
@@ -214,25 +214,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1266
+    width: 1275
     height: 286
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 22}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 15}
   - {fileID: 14}
   - {fileID: 22}
-  m_Selected: 3
-  m_LastSelected: 1
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -323,12 +323,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1589
+    width: 1600
     height: 987
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 87
+  controlID: 92
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -351,7 +351,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 774
-    width: 1265
+    width: 1274
     height: 265
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -370,22 +370,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/!Game/Graphic_Design/Materials
+    - Assets/!Game/Scripts/Player
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/!Game/Graphic_Design/Materials
+  - Assets/!Game/Scripts/Player
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\macwe\Documents\GitHub\AlienAlien\Alien_Alien
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c66a0000
-    m_LastClickedID: 27334
-    m_ExpandedIDs: 000000002a690000c26a0000c46a0000
+    scrollPos: {x: 0, y: 187}
+    m_SelectedIDs: be8e0000
+    m_LastClickedID: 36542
+    m_ExpandedIDs: 000000000a6a0000086c0000106c0000126c0000146c0000166c0000286c0000cc8e000020980000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -413,7 +413,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002a690000
+    m_ExpandedIDs: 000000000a6a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -438,8 +438,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b4670000
-    m_LastClickedInstanceID: 26548
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
@@ -491,7 +491,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 774
-    width: 1265
+    width: 1274
     height: 265
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -510,22 +510,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/!Game/Prefabs/GameScene/Enemies/Cone
+    - Assets/!Game/Graphic_Design/Materials
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/!Game/Prefabs/GameScene/Enemies/Cone
+  - Assets/!Game/Graphic_Design/Materials
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\macwe\Documents\GitHub\AlienAlien\Alien_Alien
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 866b0000
-    m_LastClickedID: 27526
-    m_ExpandedIDs: 000000002a690000c26a0000ce6a0000806b0000826b0000846b0000
+    m_SelectedIDs: cc8e0000
+    m_LastClickedID: 36556
+    m_ExpandedIDs: 000000000a6a0000086c0000126c0000146c0000166c0000cc8e000020980000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -553,7 +553,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002a690000
+    m_ExpandedIDs: 000000000a6a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -578,8 +578,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 28ccffff
-    m_LastClickedInstanceID: -13272
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: ec6b0000fa6b0000f86b0000f26b0000f06b0000f66b0000f46b0000ee6b0000
     m_RenameOverlay:
@@ -629,9 +629,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1532
+    x: 1589
     y: 73
-    width: 387
+    width: 330
     height: 966
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -643,7 +643,7 @@ MonoBehaviour:
     m_CachedPref: 401
     m_ControlHash: 1412526313
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: -280600
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
@@ -672,7 +672,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 528
+    width: 532
     height: 680
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -731,7 +731,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 774
-    width: 1265
+    width: 1274
     height: 265
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -750,22 +750,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/!Game/Scripts/Player
+    - Assets/!Game/Prefabs/GameScene/Player
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 92
   m_LastFolders:
-  - Assets/!Game/Scripts/Player
+  - Assets/!Game/Prefabs/GameScene/Player
   m_LastFoldersGridSize: 92
   m_LastProjectPath: C:\Users\macwe\Documents\GitHub\AlienAlien\Alien_Alien
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: b26b0000
-    m_LastClickedID: 27570
-    m_ExpandedIDs: 000000002a690000c26a0000a86b0000
+    m_SelectedIDs: 1c6c0000
+    m_LastClickedID: 27676
+    m_ExpandedIDs: 000000000a6a0000086c0000126c0000146c0000286c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -793,7 +793,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002a690000
+    m_ExpandedIDs: 000000000a6a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -818,8 +818,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b4670000
-    m_LastClickedInstanceID: 26548
+    m_SelectedInstanceIDs: 34b30000
+    m_LastClickedInstanceID: 45876
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300004e5f0000000000003c7a0000
     m_RenameOverlay:
@@ -869,9 +869,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1589
+    x: 1600
     y: 73
-    width: 330
+    width: 319
     height: 966
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -910,9 +910,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1266
+    x: 1275
     y: 774
-    width: 321
+    width: 323
     height: 265
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -923,21 +923,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f8d3ffff16fbffff34fbffff
+      m_ExpandedIDs: ecb7fbff9eb8fbffde8afdffe48afdff968bfdff4016ffff0c70ffff1470ffff1870ffff047bffffd87bffff5e7effff34fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Cone_Helper
+        m_OriginalName: Cone_Helper
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -143200
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -967,9 +967,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 529
+    x: 533
     y: 73
-    width: 1058
+    width: 1065
     height: 680
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1172,9 +1172,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -33.357494, y: -2.5999908, z: -21.177353}
+    m_Target: {x: -27.209295, y: 11.760519, z: 11.107508}
     speed: 2
-    m_Value: {x: -33.357494, y: -2.5999908, z: -21.177353}
+    m_Value: {x: -5.7175684, y: 5.4310856, z: 2.9601684}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1219,19 +1219,19 @@ MonoBehaviour:
       m_Size: {x: 1, y: 1}
     m_ShowGrid: 1
     m_GridAxis: 1
-    m_gridOpacity: 0.5
+    m_gridOpacity: 1
   m_Rotation:
-    m_Target: {x: 0.06253487, y: 0.70391667, z: -0.7047645, w: 0.062459875}
+    m_Target: {x: 0.16198006, y: -0.04882467, z: 0.008024467, w: 0.98555297}
     speed: 2
-    m_Value: {x: 0.062534764, y: 0.7039155, z: -0.7047633, w: 0.06245977}
+    m_Value: {x: -0.13947888, y: 0.23264791, z: -0.03374793, w: -0.96191573}
   m_Size:
-    m_Target: 59.02408
+    m_Target: 21.073048
     speed: 2
-    m_Value: 59.02408
+    m_Value: 14.939989
   m_Ortho:
-    m_Target: 1
+    m_Target: 0
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5

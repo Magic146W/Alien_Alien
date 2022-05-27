@@ -16,7 +16,8 @@ public class PlayerShooting: MonoBehaviour
 
     void Start()
     {
-        m_playerObject = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        m_playerObject = player.transform.GetChild(0).gameObject;
         m_playerMaterial = m_playerObject.GetComponent<Renderer>().material;
         InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
