@@ -11,7 +11,7 @@ public class OutlineShader : MonoBehaviour
     [SerializeField]
     private Color m_oultineColor;
     private Renderer m_outlineRenderer;
-    private  Color[] m_colors = { new Color(0,1,0,1), new Color(1,0,0,1), new Color(1,1,1,1), new Color(0,0,1,1) }; //green,red,white,blue
+    private  Color[] m_colors = { new Color(0,1,0,1), new Color(1,0,0,1), new Color(1,1,1,1), new Color(0,1,1,1) }; //green,red,white,blue
     private float m_scaleToMainBody = 0.0016f;
 
     void Start()

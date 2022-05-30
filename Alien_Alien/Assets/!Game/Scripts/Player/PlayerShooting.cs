@@ -6,19 +6,17 @@ public class PlayerShooting: MonoBehaviour
 {
     List<Collider> m_enemiesInRange = new List<Collider>();
     private float m_timeToShoot = 2f;
-    private Material m_playerMaterial;
-    GameObject m_playerObject;
+    private Material m_helpMaterial;
 
     [SerializeField]
     private GameObject m_bullet;
 
-    private float m_bulletSpeed = 10000;
+    private float m_bulletSpeed = 5000;
 
     void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        m_playerObject = player.transform.GetChild(0).gameObject;
-        m_playerMaterial = m_playerObject.GetComponent<Renderer>().material;
+        GameObject player = GameObject.FindGameObjectWithTag("PlayerMaterial");
+        m_helpMaterial = player.GetComponent<Renderer>().material;
         InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
 
@@ -56,17 +54,8 @@ public class PlayerShooting: MonoBehaviour
     {
         if (m_timeToShoot > 1)
         {
-            GameObject enemy = target.transform.GetChild(0).GetChild(0).gameObject;
-            Material material = enemy.GetComponent<Renderer>().material;
             ShotBullet(target);
             m_timeToShoot = 0;
-
-
-
-            //if (m_playerMaterial.color == material.color)
-            //{
-            //    Destroy(target, 0.5f);
-            //}
         }
 
     }
@@ -74,7 +63,7 @@ public class PlayerShooting: MonoBehaviour
     private void ShotBullet(GameObject target)
     {
         GameObject instantiated = Instantiate(m_bullet, transform.position, transform.rotation);
-        instantiated.GetComponent<Renderer>().material.color = m_playerMaterial.color;
+        instantiated.GetComponent<Renderer>().material.color = m_helpMaterial.color;
         instantiated.GetComponent<Rigidbody>().AddForce((target.transform.position - instantiated.transform.position).normalized *m_bulletSpeed);
     }
 

@@ -7,7 +7,6 @@ public class PlayerColorSwap: MonoBehaviour
     [SerializeField]
     private FixedJoystick m_colorJoystick;
     private Material m_material;
-    private Color m_color;
 
     void Start()
     {
@@ -21,9 +20,9 @@ public class PlayerColorSwap: MonoBehaviour
 
     private void UpdateColorJoystick()
     {
-        if (m_colorJoystick.Horizontal < 0 && m_colorJoystick.Vertical < 0 && m_material.color != Color.blue)
+        if (m_colorJoystick.Horizontal < 0 && m_colorJoystick.Vertical < 0 && m_material.color != Color.cyan)
         {
-            m_material.color = Color.blue;
+            m_material.color = Color.cyan;
         }
         else if (m_colorJoystick.Horizontal > 0 && m_colorJoystick.Vertical < 0 && m_material.color != Color.white)
         {

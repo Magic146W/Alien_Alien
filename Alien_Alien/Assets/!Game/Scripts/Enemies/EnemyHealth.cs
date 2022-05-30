@@ -16,6 +16,10 @@ public class EnemyHealth : MonoBehaviour
                 Destroy(bullet);
                 Destroy(gameObject);
             }
+            else
+            {
+                Destroy(bullet);
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ public class PlayerMovementController: MonoBehaviour
         float verticalMove = -m_moveJoystick.Vertical;
         Vector2 convertedXY =  ConvertMoveViewToCamera(Camera.main.transform.position,horizontalMove,verticalMove);
         Vector3 direction = new Vector3(convertedXY.x, 0, convertedXY.y).normalized;
-        transform.Translate(direction * moveSpeed, Space.World);        
+        transform.Translate(direction * moveSpeed, Space.World);
     }
 
     void UpdateLookJoystick()
@@ -30,7 +30,7 @@ public class PlayerMovementController: MonoBehaviour
         float horizontalMove =  m_moveJoystick.Horizontal;
         float verticalMove = m_moveJoystick.Vertical;
         Vector2 convertedXY =  ConvertMoveViewToCamera(Camera.main.transform.position,horizontalMove,verticalMove);
-        Vector3 direction = new Vector3(convertedXY.x, 0, convertedXY.y).normalized;
+        Vector3 direction = new Vector3(convertedXY.x, 0, -convertedXY.y).normalized;
         Vector3 lookAtPosition = transform.position + direction;
         transform.LookAt(lookAtPosition);
     }
@@ -39,11 +39,10 @@ public class PlayerMovementController: MonoBehaviour
     {
         Vector2 joystickDirection = new Vector2(horizontal, vertical).normalized;
         Vector2 camera2DPosition = new Vector2(cameraPosition.x, cameraPosition.z);
-        Vector2 playerPosition = new Vector2(transform.position.x, transform.position.z);
         Vector2 cameraToPlayer = (Vector2.zero - camera2DPosition).normalized;
         float angle = Vector2.SignedAngle(cameraToPlayer, new Vector2(0,1));
         Vector2 finalDirection = RotateVector(joystickDirection, -angle);
-        return finalDirection;    
+        return finalDirection;
     }
 
     private Vector2 RotateVector(Vector2 vector, float angle)
