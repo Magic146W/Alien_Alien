@@ -6,14 +6,35 @@ public class PlayerMovementController: MonoBehaviour
 {
     [SerializeField]
     private FixedJoystick m_moveJoystick;
+    [SerializeField]
+    private Rigidbody m_rb;
+    [SerializeField]
+    private Transform m_body;
+    [SerializeField]
+    private PlayerData m_playerData;
 
-    private float moveSpeed = 0.6f;
+    private float m_moveSpeed = 10f;
+    private float m_maxMoveSpeed = 20f;
+    private float m_rotateSpeed = 4;
+    private float m_maxXAngle = 10;
+    private float m_lowSpeedBreak = 0.95f;
+    private float m_speedBreak = 0.99f;
 
+
+    private void Awake()
+    {
+        m_moveSpeed = m_playerData.Acceleration;
+        m_maxMoveSpeed = m_playerData.MaxSpeed;
+        m_rotateSpeed = m_playerData.RotateSpeed;
+        m_maxXAngle = m_playerData.MaxXAngle;
+    }
 
     void FixedUpdate()
     {
         UpdateMoveJoystick();
         UpdateLookJoystick();
+        MaxSpeedControl();
+        AnimateBody();
     }
 
     void UpdateMoveJoystick()
@@ -22,7 +43,7 @@ public class PlayerMovementController: MonoBehaviour
         float verticalMove = -m_moveJoystick.Vertical;
         Vector2 convertedXY =  ConvertMoveViewToCamera(Camera.main.transform.position,horizontalMove,verticalMove);
         Vector3 direction = new Vector3(convertedXY.x, 0, convertedXY.y).normalized;
-        transform.Translate(direction * moveSpeed, Space.World);
+        m_rb.AddForce(direction * m_moveSpeed);   //transform.Translate(direction * moveSpeed, Space.World);
     }
 
     void UpdateLookJoystick()
@@ -51,5 +72,47 @@ public class PlayerMovementController: MonoBehaviour
         float _x = vector.x * Mathf.Cos(radian) - vector.y * Mathf.Sin(radian);
         float _y = vector.x * Mathf.Sin(radian) - vector.y * Mathf.Cos(radian);
         return new Vector2(_x, _y);
+    }
+
+    private void MaxSpeedControl()
+    {
+        m_rb.velocity = m_rb.velocity * m_speedBreak;
+        if (m_rb.velocity.magnitude > m_maxMoveSpeed)
+        {
+            m_rb.velocity = m_rb.velocity * m_lowSpeedBreak;
+        }
+        else if (m_rb.velocity.magnitude<1 && m_moveJoystick.Direction == Vector2.zero)
+        {
+            m_rb.velocity *= 0;
+        }
+    }
+
+    private void AnimateBody()
+    {
+        float rotationX = 0;
+        if (m_moveJoystick.Direction != Vector2.zero)
+        {
+            if (m_body.eulerAngles.x <= m_maxXAngle)
+            {
+                m_body.transform.Rotate(new Vector3(m_rotateSpeed, 0, 0) * Time.deltaTime);
+                rotationX = Mathf.Clamp(m_body.eulerAngles.x, 0, m_maxXAngle);
+                m_body.rotation = Quaternion.Euler(rotationX, m_body.eulerAngles.y, m_body.eulerAngles.z);
+            }
+        }
+        else
+        {
+            if (m_body.eulerAngles.x <= m_maxXAngle+1 && m_body.eulerAngles.x != 0.0f)
+            {
+                if (m_body.eulerAngles.x > m_maxXAngle+1 || m_body.eulerAngles.x < 1)
+                {
+                    rotationX = 0;
+                    m_body.rotation = Quaternion.Euler(rotationX, m_body.eulerAngles.y, m_body.eulerAngles.z);
+                    return;
+                }
+                m_body.transform.Rotate(new Vector3(-m_rotateSpeed, 0, 0) * Time.deltaTime);
+                rotationX = Mathf.Clamp(m_body.eulerAngles.x, 0, m_maxXAngle);
+                m_body.rotation = Quaternion.Euler(rotationX, m_body.eulerAngles.y, m_body.eulerAngles.z);
+            }
+        }
     }
 }

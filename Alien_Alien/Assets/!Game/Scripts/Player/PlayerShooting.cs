@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlayerShooting: MonoBehaviour
 {
     List<Collider> m_enemiesInRange = new List<Collider>();
-    private float m_timeToShoot = 2f;
     private Material m_helpMaterial;
+    private Transform m_gunTransform;
+    private float m_timeToShoot = 2f;
 
     [SerializeField]
     private GameObject m_bullet;
-
     private float m_bulletSpeed = 5000;
 
     void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("PlayerMaterial");
-        m_helpMaterial = player.GetComponent<Renderer>().material;
+        m_helpMaterial = GameObject.FindGameObjectWithTag("PlayerMaterial").GetComponent<Renderer>().material;
+        m_gunTransform = GameObject.FindGameObjectWithTag("Gun").transform;
         InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
 
@@ -52,19 +52,26 @@ public class PlayerShooting: MonoBehaviour
 
     private void ShootNearest(GameObject target)
     {
+        MoveGun(target);
         if (m_timeToShoot > 1)
         {
             ShotBullet(target);
             m_timeToShoot = 0;
         }
-
     }
 
     private void ShotBullet(GameObject target)
     {
         GameObject instantiated = Instantiate(m_bullet, transform.position, transform.rotation);
         instantiated.GetComponent<Renderer>().material.color = m_helpMaterial.color;
-        instantiated.GetComponent<Rigidbody>().AddForce((target.transform.position - instantiated.transform.position).normalized *m_bulletSpeed);
+        instantiated.GetComponent<Rigidbody>().AddForce((target.transform.position - instantiated.transform.position).normalized * m_bulletSpeed);
+    }
+
+    private void MoveGun(GameObject target)
+    {
+        Vector3 relativePos = target.transform.position - m_gunTransform.position;
+        Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+        m_gunTransform.rotation = rotation;
     }
 
     private void OnTriggerEnter(Collider collider)

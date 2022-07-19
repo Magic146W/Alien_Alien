@@ -70,17 +70,5 @@ public class PlayerHealth: MonoBehaviour
             m_health -= 10;
             UpdateHealth();
         }
-    //    if (other.tag == "Fall")
-    //    {
-    //        Destroy(gameObject, 2);
-    //        Death();
-    //    }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        //if (other.tag == "Floor")
-        //{
-        //    rb.useGravity = true;
-        //}
     }
 }

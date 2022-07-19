@@ -13,7 +13,7 @@ public class EnemyFollow : MonoBehaviour
 
     PlayerHealth m_playerHealth;
     private Transform m_player;
-    private float m_speed = 4; //Add scriptable object in awake
+    private float m_speed = 5; //Add scriptable object in awake
 
     private void Awake()
     {
