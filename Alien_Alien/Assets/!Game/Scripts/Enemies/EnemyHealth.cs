@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    private float m_health = 1;
+    [SerializeField]
+    private EnemyData enemyData;
+    [SerializeField]
+    private PlayerShooting m_playerShooting;
+
+
+    private void Awake()
+    {
+        m_health = enemyData.Health;
+        m_playerShooting = GameObject.FindGameObjectWithTag("Shooting").GetComponent<PlayerShooting>();
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Bullet")
@@ -14,6 +27,12 @@ public class EnemyHealth : MonoBehaviour
             if (enemyMaterial.color == color)
             {
                 Destroy(bullet);
+                m_health -= m_playerShooting.ShotDamage;
+                if (m_health <= 0)
+                {
+                    Destroy(gameObject);
+                    //points.PointsGet(Mathf.RoundToInt(5 *eData.pointMult));
+                }
                 Destroy(gameObject);
             }
             else

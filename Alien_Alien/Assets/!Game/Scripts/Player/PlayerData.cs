@@ -31,7 +31,9 @@ public class PlayerData : ScriptableObject //so_p - Scriptable Object Player
     [SerializeField]
     private float so_p_shotDamage = 10f;            //damage of shoots
     [SerializeField]
-    private float so_p_shotSpeedMult = 1f;          //bullet speed
+    private float so_p_bulletSpeedMult = 1f;        //bullet speed
+    [SerializeField]
+    private float so_p_shotSpeedMult = 1f;          //shot speed
     [SerializeField]
     private int so_p_shotThroughEnemyCount = 0;     //ability for bullet to move after hitting enemy
 
@@ -61,6 +63,7 @@ public class PlayerData : ScriptableObject //so_p - Scriptable Object Player
     public float BaseDamageMult => so_p_baseDamageMult;
     public float ShotDamage => so_p_shotDamage;
     public float ShotSpeedMult => so_p_shotSpeedMult;
+    public float BulletSpeedMult => so_p_bulletSpeedMult;
     public int ShotThroughEnemyCount => so_p_shotThroughEnemyCount;
 
     public bool IsAOE => so_p_isAOE;

@@ -75,5 +75,9 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7942699852091115847, guid: 4b75d5410fe552b4fa8e2f11545f4d5d, type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: b7870f0de69af904383926f56dfe320a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b75d5410fe552b4fa8e2f11545f4d5d, type: 3}

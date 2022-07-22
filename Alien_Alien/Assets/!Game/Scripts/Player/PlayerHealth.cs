@@ -12,7 +12,7 @@ public class PlayerHealth: MonoBehaviour
     [SerializeField] GameObject m_hp1;
     [SerializeField] GameObject m_hp2;
     [SerializeField] GameObject m_hp3;
-    private int m_health = 30;
+    private int m_health = 3;
     private int m_getHealth;
 
     void Start()
@@ -29,13 +29,13 @@ public class PlayerHealth: MonoBehaviour
             m_hp2.SetActive(false);
             m_hp3.SetActive(false);
         }
-        else if (m_health == 10)
+        else if (m_health == 1)
         {
             m_hp1.SetActive(false);
             m_hp2.SetActive(false);
             m_hp3.SetActive(true);
         }
-        else if (m_health == 20)
+        else if (m_health == 2)
         {
             m_hp1.SetActive(false);
             m_hp2.SetActive(true);
@@ -67,7 +67,7 @@ public class PlayerHealth: MonoBehaviour
         if (collider.tag == "Enemy")
         {
             Destroy(collider.gameObject, 0.1f);
-            m_health -= 10;
+            m_health -= 1; // enemy attack
             UpdateHealth();
         }
     }

@@ -11,6 +11,7 @@ TagManager:
   - Hurt
   - Gun
   - GunMaterial
+  - Shooting
   layers:
   - Default
   - TransparentFX

@@ -255,7 +255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5048372924933671580}
   m_Layer: 7
-  m_Name: Human
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 690552170}
   m_Layer: 7
   m_Name: Shooting
-  m_TagString: Untagged
+  m_TagString: Shooting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bullet: {fileID: 660600939916938287, guid: 50d56ace7cdd7e54b8b01b2c4c9e372b, type: 3}
+  playerData: {fileID: 11400000, guid: 251283c2e6ee70b49b0d158edafc8c86, type: 2}
 --- !u!65 &690552170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -516,6 +517,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveJoystick: {fileID: 0}
+  m_rb: {fileID: 250564839}
+  m_body: {fileID: 5048372924933671580}
+  m_playerData: {fileID: 11400000, guid: 251283c2e6ee70b49b0d158edafc8c86, type: 2}
 --- !u!54 &250564839
 Rigidbody:
   m_ObjectHideFlags: 0

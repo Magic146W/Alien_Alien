@@ -7,17 +7,30 @@ public class PlayerShooting: MonoBehaviour
     List<Collider> m_enemiesInRange = new List<Collider>();
     private Material m_helpMaterial;
     private Transform m_gunTransform;
-    private float m_timeToShoot = 2f;
-
     [SerializeField]
     private GameObject m_bullet;
+    [SerializeField]
+    private PlayerData playerData;
+
     private float m_bulletSpeed = 5000;
+    private float m_timeToShoot;
+    private float m_shotDamage = 1f;
+    private float m_shotSpeed = 1f;
 
     void Start()
     {
+        SetStats();
+
         m_helpMaterial = GameObject.FindGameObjectWithTag("PlayerMaterial").GetComponent<Renderer>().material;
         m_gunTransform = GameObject.FindGameObjectWithTag("Gun").transform;
         InvokeRepeating("UpdateTarget", 0f, 0.2f);
+    }
+
+    private void SetStats()
+    {
+        m_shotDamage = playerData.ShotDamage * playerData.BaseDamageMult;
+        m_bulletSpeed *= playerData.BulletSpeedMult;
+        m_shotSpeed *= playerData.ShotSpeedMult;
     }
 
     private void FixedUpdate()
@@ -53,7 +66,7 @@ public class PlayerShooting: MonoBehaviour
     private void ShootNearest(GameObject target)
     {
         MoveGun(target);
-        if (m_timeToShoot > 1)
+        if (m_timeToShoot > m_shotSpeed)
         {
             ShotBullet(target);
             m_timeToShoot = 0;
@@ -102,5 +115,7 @@ public class PlayerShooting: MonoBehaviour
             m_enemiesInRange.Add(collider);
         }
     }
+
+    public float ShotDamage => m_shotDamage;
 }
 

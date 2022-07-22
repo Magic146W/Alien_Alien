@@ -134,11 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &111172835 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5048372924933671580, guid: 56ae859a86228744bb029b0b2e04bc5f, type: 3}
-  m_PrefabInstance: {fileID: 2654707218660183868}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &135874653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5093656926280829943, guid: c970f0cdbf9b03e4f9f2028109ca218e, type: 3}
@@ -153,11 +148,6 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6637124575197243249, guid: 92cce131970e06247976c6ea720615bf, type: 3}
   m_PrefabInstance: {fileID: 1213970205}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &262357815 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 250564839, guid: 56ae859a86228744bb029b0b2e04bc5f, type: 3}
-  m_PrefabInstance: {fileID: 2654707218660183868}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &778039920 stripped
 Transform:
@@ -1108,18 +1098,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2781135366901335388, guid: 56ae859a86228744bb029b0b2e04bc5f, type: 3}
-      propertyPath: m_rb
-      value: 
-      objectReference: {fileID: 262357815}
-    - target: {fileID: -2781135366901335388, guid: 56ae859a86228744bb029b0b2e04bc5f, type: 3}
-      propertyPath: m_body
-      value: 
-      objectReference: {fileID: 111172835}
-    - target: {fileID: -2781135366901335388, guid: 56ae859a86228744bb029b0b2e04bc5f, type: 3}
-      propertyPath: m_playerData
-      value: 
-      objectReference: {fileID: 11400000, guid: 251283c2e6ee70b49b0d158edafc8c86, type: 2}
-    - target: {fileID: -2781135366901335388, guid: 56ae859a86228744bb029b0b2e04bc5f, type: 3}
       propertyPath: m_moveJoystick
       value: 
       objectReference: {fileID: 9477209}
@@ -1127,10 +1105,6 @@ PrefabInstance:
       propertyPath: m_colorJoystick
       value: 
       objectReference: {fileID: 1752608340}
-    - target: {fileID: 5567782576970485798, guid: 56ae859a86228744bb029b0b2e04bc5f, type: 3}
-      propertyPath: m_Name
-      value: Body
-      objectReference: {fileID: 0}
     - target: {fileID: 6680896596395525369, guid: 56ae859a86228744bb029b0b2e04bc5f, type: 3}
       propertyPath: m_colorJoystick
       value: 
