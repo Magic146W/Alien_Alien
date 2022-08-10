@@ -7,30 +7,31 @@ public class PlayerShooting: MonoBehaviour
     List<Collider> m_enemiesInRange = new List<Collider>();
     private Material m_helpMaterial;
     private Transform m_gunTransform;
+    private Data_Player m_playerData;
     [SerializeField]
     private GameObject m_bullet;
     [SerializeField]
-    private PlayerData playerData;
+    private ParticleSystem m_gunShot;
 
     private float m_bulletSpeed = 5000;
     private float m_timeToShoot;
-    private float m_shotDamage = 1f;
     private float m_shotSpeed = 1f;
 
     void Start()
     {
-        SetStats();
-
+        m_playerData = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<Data_Player>();
         m_helpMaterial = GameObject.FindGameObjectWithTag("PlayerMaterial").GetComponent<Renderer>().material;
         m_gunTransform = GameObject.FindGameObjectWithTag("Gun").transform;
-        InvokeRepeating("UpdateTarget", 0f, 0.2f);
+
+        m_gunShot.Stop();
+        SetStats();
+        InvokeRepeating("UpdateTarget", 0f, 0.1f);
     }
 
     private void SetStats()
     {
-        m_shotDamage = playerData.ShotDamage * playerData.BaseDamageMult;
-        m_bulletSpeed *= playerData.BulletSpeedMult;
-        m_shotSpeed *= playerData.ShotSpeedMult;
+        m_bulletSpeed *= m_playerData.BulletSpeedMult;
+        m_shotSpeed *= m_playerData.ShotSpeedMult;
     }
 
     private void FixedUpdate()
@@ -75,6 +76,7 @@ public class PlayerShooting: MonoBehaviour
 
     private void ShotBullet(GameObject target)
     {
+        m_gunShot.Play();
         GameObject instantiated = Instantiate(m_bullet, transform.position, transform.rotation);
         instantiated.GetComponent<Renderer>().material.color = m_helpMaterial.color;
         instantiated.GetComponent<Rigidbody>().AddForce((target.transform.position - instantiated.transform.position).normalized * m_bulletSpeed);
@@ -115,7 +117,5 @@ public class PlayerShooting: MonoBehaviour
             m_enemiesInRange.Add(collider);
         }
     }
-
-    public float ShotDamage => m_shotDamage;
 }
 

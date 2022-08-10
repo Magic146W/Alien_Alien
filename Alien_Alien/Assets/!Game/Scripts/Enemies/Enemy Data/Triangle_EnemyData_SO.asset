@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Triangle_EnemyData_SO
   m_EditorClassIdentifier: 
   so_e_health: 10
-  so_e_speed: 5
+  so_e_speed: 7
   so_e_points: 1
   so_e_baseDamage: 1

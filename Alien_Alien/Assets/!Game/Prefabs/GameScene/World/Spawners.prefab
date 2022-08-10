@@ -77,3 +77,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_triangleCone: {fileID: 9125374981514104183, guid: c51fc813c21414c4ea212f40ffc0b3a8, type: 3}
+  m_enemyHolder: {fileID: 9095859437981445004, guid: 1b3ab06c2a5568e49aba87da80a20464, type: 3}

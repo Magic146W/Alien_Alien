@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22532d00135f634aa218a703359984a, type: 3}
   m_Name: Square_EnemyData_SO
   m_EditorClassIdentifier: 
-  so_e_health: 25
-  so_e_speed: 6
-  so_e_points: 3
+  so_e_id: 1
+  so_e_health: 40
+  so_e_speed: 5
+  so_e_points: 5
   so_e_baseDamage: 1

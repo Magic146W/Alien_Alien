@@ -1,44 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using System;
 
 public class EnemyHealth : MonoBehaviour
 {
     private float m_health = 1;
     [SerializeField]
-    private EnemyData enemyData;
+    private EnemyData enemyData;    
     [SerializeField]
-    private PlayerShooting m_playerShooting;
+    private ParticleSystem m_particleDeath;
 
+    private Material m_enemyMaterial;
+    private Data_Player m_playerData;
+    private GameplayStats m_pointsGameStats;
+    private GameplayStats m_missionGameStats;
+    private GameplayStats m_killsGameStats;
+    private ParticleSystem.MainModule m_particleMain;
 
     private void Awake()
     {
         m_health = enemyData.Health;
-        m_playerShooting = GameObject.FindGameObjectWithTag("Shooting").GetComponent<PlayerShooting>();
+        m_playerData = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<Data_Player>();
+        m_pointsGameStats = GameObject.FindGameObjectWithTag("GameplayStats_points").GetComponent<GameplayStats>();
+        m_missionGameStats = GameObject.FindGameObjectWithTag("GameplayStats_mission").GetComponent<GameplayStats>();
+        m_killsGameStats = GameObject.FindGameObjectWithTag("GameplayStats_kills").GetComponent<GameplayStats>();
+        m_particleMain = m_particleDeath.main;
     }
+
 
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Bullet")
         {
+            if (m_enemyMaterial == null)
+            {
+                m_enemyMaterial = gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Renderer>().material;
+            }
+
             GameObject bullet = collider.gameObject;
             Color color = bullet.GetComponent<Renderer>().material.color;
-            Material enemyMaterial = gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Renderer>().material;
-            if (enemyMaterial.color == color)
+            
+            if (m_enemyMaterial.color == color)
             {
                 Destroy(bullet);
-                m_health -= m_playerShooting.ShotDamage;
+                m_health -= m_playerData.ShotDamage;
                 if (m_health <= 0)
                 {
+                    m_particleMain.startColor = new ParticleSystem.MinMaxGradient(m_enemyMaterial.color);
+                    SpawnDeathParticles();
+                    m_pointsGameStats.MyPoints = m_pointsGameStats.MyPoints + Mathf.RoundToInt(enemyData.Points);
+
+                    if (enemyData.ID == m_missionGameStats.EnemyID)
+                    {
+                        m_missionGameStats.CurrentEnemyIDKills++;
+                    }
+                    m_killsGameStats.AllKills++;
+
                     Destroy(gameObject);
-                    //points.PointsGet(Mathf.RoundToInt(5 *eData.pointMult));
                 }
-                Destroy(gameObject);
             }
             else
             {
                 Destroy(bullet);
             }
         }
+    }
+
+    private void SpawnDeathParticles()
+    {
+        ParticleSystem death = Instantiate(m_particleDeath, new Vector3(transform.position.x, 9, transform.position.z), Quaternion.identity);
+        death.Play();   
+        Destroy(death.gameObject, death.main.duration);
     }
 }

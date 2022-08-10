@@ -12,6 +12,11 @@ TagManager:
   - Gun
   - GunMaterial
   - Shooting
+  - GameplayStats
+  - GameplayStats_points
+  - GameplayStats_mission
+  - GameplayStats_kills
+  - PlayerData
   layers:
   - Default
   - TransparentFX
