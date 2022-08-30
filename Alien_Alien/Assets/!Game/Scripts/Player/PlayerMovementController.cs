@@ -11,7 +11,7 @@ public class PlayerMovementController: MonoBehaviour
     [SerializeField]
     private Transform m_body;
 
-    private Data_Player m_playerData;
+    private PlayerAttributes m_playerAttributes;
 
     private float m_moveSpeed = 10f;
     private float m_maxMoveSpeed = 20f;
@@ -23,11 +23,11 @@ public class PlayerMovementController: MonoBehaviour
 
     private void Awake()
     {
-        m_playerData = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<Data_Player>();
-        m_moveSpeed = m_playerData.Acceleration;
-        m_maxMoveSpeed = m_playerData.MaxSpeed;
-        m_rotateSpeed = m_playerData.RotateSpeed;
-        m_maxXAngle = m_playerData.MaxXAngle;
+        m_playerAttributes = GameObject.FindGameObjectWithTag("Attributes").GetComponent<PlayerAttributes>();
+        m_moveSpeed = m_playerAttributes.Acceleration;
+        m_maxMoveSpeed = m_playerAttributes.MaxSpeed;
+        m_rotateSpeed = m_playerAttributes.RotateSpeed;
+        m_maxXAngle = m_playerAttributes.MaxXAngle;
     }
 
     void FixedUpdate()

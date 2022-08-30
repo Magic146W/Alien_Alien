@@ -12,6 +12,8 @@ public class LevelUp: MonoBehaviour
     private TMP_Text m_nextLevelText;
     [SerializeField]
     private Image m_fillUpBar;
+    [SerializeField]
+    private GameObject m_skillTab;
 
     private int m_startingPointsToLevel = 20;
     private float m_multiplierPoints = 1.5f;
@@ -21,11 +23,12 @@ public class LevelUp: MonoBehaviour
 
     private GameplayStats m_pointsGameStats;
     private GameplayStats m_missionGameStats;
-    private Data_Player m_playerData;
+
+    public delegate void SkillSelectAction();
+    public static event SkillSelectAction OnLevelUp;
 
     void Start()
     {
-        m_playerData = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<Data_Player>();
         m_pointsGameStats = GameObject.FindGameObjectWithTag("GameplayStats_points").GetComponent<GameplayStats>();
         m_missionGameStats = GameObject.FindGameObjectWithTag("GameplayStats_mission").GetComponent<GameplayStats>();
         m_pointsToLevel = m_startingPointsToLevel;
@@ -39,13 +42,17 @@ public class LevelUp: MonoBehaviour
         if (m_pointsGameStats.MyPoints >= m_pointsToLevel)
         {
             m_fillUpBarCorrectionPoints = m_pointsToLevel;
-
-            m_playerData.ShotDamage += 50; //change
             m_pointsToLevel += CountPointsToLevel();
-
             m_currentLevel++;
             m_currentLevelText.text = m_currentLevel.ToString();
-            m_nextLevelText.text = (m_currentLevel + 1).ToString();        
+            m_nextLevelText.text = (m_currentLevel + 1).ToString();
+
+            m_skillTab.SetActive(true);
+
+            if (OnLevelUp!=null)
+                OnLevelUp();
+            
+            PauseGame();
         }
     }
     private int CountPointsToLevel()
@@ -66,7 +73,11 @@ public class LevelUp: MonoBehaviour
 
     private void FillUpBar()
     {
-
         m_fillUpBar.fillAmount = (float)(m_pointsGameStats.MyPoints - m_fillUpBarCorrectionPoints) / (float)(m_pointsToLevel - m_fillUpBarCorrectionPoints);
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
     }
 }

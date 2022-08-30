@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed784e42461058640aab53dc78d415f5, type: 3}
+  m_Name: ID_5_Laser_Final
+  m_EditorClassIdentifier: 
+  so_skillID: 5
+  so_groupID: 1
+  so_skillImage: {fileID: 21300000, guid: dd5f969b183ff134cab371e3d2148d59, type: 3}
+  so_skillName: LASER!
+  so_skillText: 'Now we are firing a laser! (Use with caution) '

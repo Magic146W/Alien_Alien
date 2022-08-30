@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8066910489228526312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8066910489228526294}
+  - component: {fileID: 8066910489228526295}
+  m_Layer: 0
+  m_Name: Skills_SO
+  m_TagString: SkillContainer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8066910489228526294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066910489228526312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8066910489228526295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066910489228526312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ce6ae31d767f64e94412281dff0f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_skillList:
+  - {fileID: 11400000, guid: 1e11a57d91496c24aaf988dba0b9e57f, type: 2}
+  - {fileID: 11400000, guid: 89c95055cfb2fe847a54a2b36f602ae3, type: 2}
+  - {fileID: 11400000, guid: 910d9dd1f4886e044b8b99f9b3ce3866, type: 2}
+  - {fileID: 11400000, guid: df365734cba5c2341bffa40097d69483, type: 2}
+  - {fileID: 11400000, guid: a0d0fc0266df6284a86f9805a6e7149b, type: 2}
+  - {fileID: 11400000, guid: 6a3979d26e325a54ea00ab5c748f467f, type: 2}
+  - {fileID: 11400000, guid: 8c489a8df3c50a440bca684490bbc497, type: 2}
+  - {fileID: 11400000, guid: 96097d813b79c42438df2d4f690e586f, type: 2}
+  - {fileID: 11400000, guid: 64967bf7f20b848448df600f9a379e8b, type: 2}
+  - {fileID: 11400000, guid: 3f33fc5708991dc4e8bae331555f2211, type: 2}
+  - {fileID: 11400000, guid: 53630e4a27c31b14ea1c587709abc956, type: 2}
+  - {fileID: 11400000, guid: 19036efabf79bcf41a5688cb1eeba254, type: 2}
+  - {fileID: 11400000, guid: 22cb244fc5364d54aa9aedf3c106395d, type: 2}
+  - {fileID: 11400000, guid: f571e89859e03384fb4d965c895d0489, type: 2}
+  m_playerSkillList:
+  - {fileID: 11400000, guid: 1e11a57d91496c24aaf988dba0b9e57f, type: 2}
+  - {fileID: 11400000, guid: 89c95055cfb2fe847a54a2b36f602ae3, type: 2}
+  - {fileID: 11400000, guid: 910d9dd1f4886e044b8b99f9b3ce3866, type: 2}
+  - {fileID: 11400000, guid: df365734cba5c2341bffa40097d69483, type: 2}
+  - {fileID: 11400000, guid: a0d0fc0266df6284a86f9805a6e7149b, type: 2}
+  - {fileID: 11400000, guid: 6a3979d26e325a54ea00ab5c748f467f, type: 2}
+  - {fileID: 11400000, guid: 8c489a8df3c50a440bca684490bbc497, type: 2}
+  - {fileID: 11400000, guid: 96097d813b79c42438df2d4f690e586f, type: 2}
+  - {fileID: 11400000, guid: 64967bf7f20b848448df600f9a379e8b, type: 2}
+  - {fileID: 11400000, guid: 3f33fc5708991dc4e8bae331555f2211, type: 2}
+  - {fileID: 11400000, guid: 53630e4a27c31b14ea1c587709abc956, type: 2}
+  - {fileID: 11400000, guid: 19036efabf79bcf41a5688cb1eeba254, type: 2}
+  - {fileID: 11400000, guid: 22cb244fc5364d54aa9aedf3c106395d, type: 2}
+  - {fileID: 11400000, guid: f571e89859e03384fb4d965c895d0489, type: 2}

@@ -7,7 +7,7 @@ public class PlayerShooting: MonoBehaviour
     List<Collider> m_enemiesInRange = new List<Collider>();
     private Material m_helpMaterial;
     private Transform m_gunTransform;
-    private Data_Player m_playerData;
+    private PlayerAttributes m_playerAttributes;
     [SerializeField]
     private GameObject m_bullet;
     [SerializeField]
@@ -19,7 +19,7 @@ public class PlayerShooting: MonoBehaviour
 
     void Start()
     {
-        m_playerData = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<Data_Player>();
+        m_playerAttributes = GameObject.FindGameObjectWithTag("Attributes").GetComponent<PlayerAttributes>();
         m_helpMaterial = GameObject.FindGameObjectWithTag("PlayerMaterial").GetComponent<Renderer>().material;
         m_gunTransform = GameObject.FindGameObjectWithTag("Gun").transform;
 
@@ -30,8 +30,8 @@ public class PlayerShooting: MonoBehaviour
 
     private void SetStats()
     {
-        m_bulletSpeed *= m_playerData.BulletSpeedMult;
-        m_shotSpeed *= m_playerData.ShotSpeedMult;
+        m_bulletSpeed *= m_playerAttributes.BulletSpeedMult;
+        m_shotSpeed *= m_playerAttributes.ShotSpeedMult;
     }
 
     private void FixedUpdate()

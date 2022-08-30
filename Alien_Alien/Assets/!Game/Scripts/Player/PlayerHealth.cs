@@ -12,6 +12,7 @@ public class PlayerHealth: MonoBehaviour
     [SerializeField] GameObject m_hp1;
     [SerializeField] GameObject m_hp2;
     [SerializeField] GameObject m_hp3;
+    [SerializeField] GameObject m_Restart;
     private int m_health = 3;
     private int m_getHealth;
 
@@ -59,6 +60,7 @@ public class PlayerHealth: MonoBehaviour
     {
         m_textMeshEnable.SetActive(true);
         m_TMDeath.text = "DEATH";
+        m_Restart.SetActive(true);
         m_dead = true;
     }
 

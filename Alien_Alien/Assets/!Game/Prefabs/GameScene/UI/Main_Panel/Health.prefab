@@ -365,6 +365,14 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8401781463952165370, guid: 61b2880109cebac4e91053e51946ab05, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    - target: {fileID: 8401781463952165370, guid: 61b2880109cebac4e91053e51946ab05, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8401781463952165372, guid: 61b2880109cebac4e91053e51946ab05, type: 3}
       propertyPath: m_Name
       value: Death
