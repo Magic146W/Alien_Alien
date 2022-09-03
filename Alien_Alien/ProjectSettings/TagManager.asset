@@ -16,11 +16,9 @@ TagManager:
   - GameplayStats_points
   - GameplayStats_mission
   - GameplayStats_kills
-  - PlayerData
   - SkillContainer
-  - Attributes
-  - Skills
-  - Elements
+  - PlayerData
+  - SkillUI
   layers:
   - Default
   - TransparentFX

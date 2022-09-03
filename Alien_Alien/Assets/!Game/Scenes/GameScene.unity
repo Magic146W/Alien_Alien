@@ -751,7 +751,7 @@ PrefabInstance:
       objectReference: {fileID: 6092122622499890751}
     - target: {fileID: 8084815739105240608, guid: 08a74d721353b28408b0f679889fd9b4, type: 3}
       propertyPath: m_TagString
-      value: Attributes
+      value: PlayerData
       objectReference: {fileID: 0}
     - target: {fileID: 8162749240124646098, guid: 08a74d721353b28408b0f679889fd9b4, type: 3}
       propertyPath: m_Name
@@ -834,6 +834,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1085956888}
     m_Modifications:
+    - target: {fileID: 800591650512475378, guid: 2376c428e9e514b4fb38a698d24c0307, type: 3}
+      propertyPath: m_TagString
+      value: SkillUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286828987260194602, guid: 2376c428e9e514b4fb38a698d24c0307, type: 3}
+      propertyPath: m_TagString
+      value: SkillUI
+      objectReference: {fileID: 0}
     - target: {fileID: 5151680615278618374, guid: 2376c428e9e514b4fb38a698d24c0307, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -929,6 +937,10 @@ PrefabInstance:
     - target: {fileID: 7291301163312034363, guid: 2376c428e9e514b4fb38a698d24c0307, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106550185985369332, guid: 2376c428e9e514b4fb38a698d24c0307, type: 3}
+      propertyPath: m_TagString
+      value: SkillUI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2376c428e9e514b4fb38a698d24c0307, type: 3}

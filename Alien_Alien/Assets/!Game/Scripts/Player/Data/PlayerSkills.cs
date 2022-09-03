@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerSkills : MonoBehaviour
 {
     #region !Passive Skills
+
     private bool so_ID2_AOEFinal = false;                   //area of damage (explosion) after hit
     private bool so_ID5_Laser = false;                      //now you shot one laser
     private bool so_ID10_pointMultFinal = false;            //2x point multiplier   
@@ -37,4 +38,20 @@ public class PlayerSkills : MonoBehaviour
 
 
     #endregion
+
+    Dictionary<int,bool> m_dictionaryVariablesSkills = new Dictionary<int, bool>();
+    public Dictionary<int, bool> DictionaryVariablesSkills
+    {
+        get { return m_dictionaryVariablesSkills; }
+        set { m_dictionaryVariablesSkills = value; }
+    }
+
+    private void Awake()
+    {
+        m_dictionaryVariablesSkills.Add(2, AOEFinal);
+        m_dictionaryVariablesSkills.Add(5, Laser);
+        m_dictionaryVariablesSkills.Add(10, PointMult);
+        m_dictionaryVariablesSkills.Add(13, Death);
+
+    }
 }

@@ -19,7 +19,7 @@ public class PlayerShooting: MonoBehaviour
 
     void Start()
     {
-        m_playerAttributes = GameObject.FindGameObjectWithTag("Attributes").GetComponent<PlayerAttributes>();
+        m_playerAttributes = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerAttributes>();
         m_helpMaterial = GameObject.FindGameObjectWithTag("PlayerMaterial").GetComponent<Renderer>().material;
         m_gunTransform = GameObject.FindGameObjectWithTag("Gun").transform;
 

@@ -7,5 +7,4 @@ public class PlayerElements : MonoBehaviour
     private int so_elementID;
 
 
-
 }

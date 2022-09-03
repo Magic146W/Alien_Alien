@@ -23,7 +23,7 @@ public class PlayerMovementController: MonoBehaviour
 
     private void Awake()
     {
-        m_playerAttributes = GameObject.FindGameObjectWithTag("Attributes").GetComponent<PlayerAttributes>();
+        m_playerAttributes = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerAttributes>();
         m_moveSpeed = m_playerAttributes.Acceleration;
         m_maxMoveSpeed = m_playerAttributes.MaxSpeed;
         m_rotateSpeed = m_playerAttributes.RotateSpeed;

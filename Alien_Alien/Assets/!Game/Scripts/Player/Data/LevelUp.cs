@@ -18,8 +18,9 @@ public class LevelUp: MonoBehaviour
     private int m_startingPointsToLevel = 20;
     private float m_multiplierPoints = 1.5f;
     private int m_pointsToLevel = 0;
-    private int m_currentLevel = 0;
     private int m_fillUpBarCorrectionPoints = 0;
+    private int m_currentLevel = 0;
+    public int CurrentLevel => m_currentLevel;
 
     private GameplayStats m_pointsGameStats;
     private GameplayStats m_missionGameStats;
@@ -27,7 +28,7 @@ public class LevelUp: MonoBehaviour
     public delegate void SkillSelectAction();
     public static event SkillSelectAction OnLevelUp;
 
-    void Start()
+    void Awake()
     {
         m_pointsGameStats = GameObject.FindGameObjectWithTag("GameplayStats_points").GetComponent<GameplayStats>();
         m_missionGameStats = GameObject.FindGameObjectWithTag("GameplayStats_mission").GetComponent<GameplayStats>();

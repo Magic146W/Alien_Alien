@@ -15,5 +15,5 @@ MonoBehaviour:
   so_skillID: 0
   so_groupID: 0
   so_skillImage: {fileID: 21300000, guid: 9458fd2dc64f01a489a78079e91ab19a, type: 3}
-  so_skillName: All Damage
-  so_skillText: Rises overall damage by X points
+  so_skillName: Shot Damage
+  so_skillText: Rises bullet damage by X points

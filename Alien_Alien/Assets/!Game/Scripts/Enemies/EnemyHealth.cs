@@ -4,11 +4,11 @@ using TMPro;
 using UnityEngine;
 using System;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth: MonoBehaviour
 {
     private float m_health = 1;
     [SerializeField]
-    private EnemyData enemyData;    
+    private EnemyData enemyData;
     [SerializeField]
     private ParticleSystem m_particleDeath;
 
@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
     private void Awake()
     {
         m_health = enemyData.Health;
-        m_playerAttributes = GameObject.FindGameObjectWithTag("Attributes").GetComponent<PlayerAttributes>();
+        m_playerAttributes = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerAttributes>();
         m_pointsGameStats = GameObject.FindGameObjectWithTag("GameplayStats_points").GetComponent<GameplayStats>();
         m_missionGameStats = GameObject.FindGameObjectWithTag("GameplayStats_mission").GetComponent<GameplayStats>();
         m_killsGameStats = GameObject.FindGameObjectWithTag("GameplayStats_kills").GetComponent<GameplayStats>();
@@ -41,16 +41,17 @@ public class EnemyHealth : MonoBehaviour
 
             GameObject bullet = collider.gameObject;
             Color color = bullet.GetComponent<Renderer>().material.color;
-            
+
             if (m_enemyMaterial.color == color)
             {
                 Destroy(bullet);
-                m_health -= m_playerAttributes.ShotDamage;
+                m_health -= m_playerAttributes.ShotDamage * m_playerAttributes.AllDamageMult;
+                Debug.Log("Damage: " + (m_playerAttributes.ShotDamage * m_playerAttributes.AllDamageMult));
                 if (m_health <= 0)
                 {
                     m_particleMain.startColor = new ParticleSystem.MinMaxGradient(m_enemyMaterial.color);
                     SpawnDeathParticles();
-                    m_pointsGameStats.MyPoints = m_pointsGameStats.MyPoints + Mathf.RoundToInt(enemyData.Points);
+                    m_pointsGameStats.MyPoints = m_pointsGameStats.MyPoints + Mathf.RoundToInt(enemyData.Points) + (int)m_playerAttributes.ExtraPoints;
 
                     if (enemyData.ID == m_missionGameStats.EnemyID)
                     {
@@ -71,7 +72,7 @@ public class EnemyHealth : MonoBehaviour
     private void SpawnDeathParticles()
     {
         ParticleSystem death = Instantiate(m_particleDeath, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        death.Play();   
+        death.Play();
         Destroy(death.gameObject, death.main.duration);
     }
 }
