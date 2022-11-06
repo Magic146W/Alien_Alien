@@ -28,7 +28,7 @@ public class PlayerAttributes: MonoBehaviour
     private float so_AOEArea = 3f;                  //area range of explosion/AOE skill
     private int so_health = 3;                      //player health
     private float so_maxSpeed = 20f;                //max player speed
-    private float so_acceleration = 10f;            //acceleration of player
+    private float so_acceleration = 15f;            //acceleration of player
     private float so_levelCorrection = 1f;          //level correction multiplier
 
     public float RotateSpeed => so_rotateSpeed;
@@ -53,7 +53,7 @@ public class PlayerAttributes: MonoBehaviour
     private float so_ID8_moveSpeedUp = 0;             //move speed increase to move based actions (acceleration, max speed)
     private float so_ID9_extraPoints = 10;             //bonus points added to action
     private float so_ID11_criticalChance = 0;         //chance to hit extra hard (shoots damage for more)
-    private float so_ID12_criticalDamageMult = 1f;  //Critical hits hit for more damage
+    private float so_ID12_criticalDamageMult = 1.1f;  //Critical hits hit for more damage
 
     public float ShotDamage                         //ID 0
     {
@@ -180,10 +180,10 @@ public class PlayerAttributes: MonoBehaviour
         m_dictionaryAttributesProgress.Add(3, new List<float> { 1, 2, 3 });
         m_dictionaryAttributesProgress.Add(4, new List<float> { 1, 0.95f, 0.9f, 0.85f, 0.8f, 0.7f, 0.6f });
         m_dictionaryAttributesProgress.Add(6, new List<float> { 0, 2, 3, 5 });
-        m_dictionaryAttributesProgress.Add(8, new List<float> { 0, 2, 3, 5 });
-        m_dictionaryAttributesProgress.Add(9, new List<float> { 0, 3, 4, 5 });
-        m_dictionaryAttributesProgress.Add(11, new List<float> { 0, 2, 4, 7, 13, 20 });
-        m_dictionaryAttributesProgress.Add(12, new List<float> { 1, 1.2f, 1.5f, 1.9f, 2.4f, 3f });
+        m_dictionaryAttributesProgress.Add(8, new List<float> { 0, 2, 4, 8 });
+        m_dictionaryAttributesProgress.Add(9, new List<float> { 0, 1, 2, 4 });
+        m_dictionaryAttributesProgress.Add(11, new List<float> { 0.5f, 2, 3, 6, 10, 15 });
+        m_dictionaryAttributesProgress.Add(12, new List<float> { 1.1f, 1.5f, 1.9f, 2.5f, 3f, 4f });
     }
 
     private void UpdateAttributes()

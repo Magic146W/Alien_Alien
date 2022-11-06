@@ -11,10 +11,10 @@ public class PlayerShooting: MonoBehaviour
     [SerializeField] private GameObject m_bullet;
     [SerializeField] private ParticleSystem m_gunShot;
     [SerializeField] private Transform m_gunMuzzle;
+    [SerializeField] private AudioSource m_shotAudio;
 
     private float m_bulletSpeed = 5000;
     private float m_timeToShoot;
-    private float m_shotSpeed = 1f;
 
     void Start()
     {
@@ -68,9 +68,10 @@ public class PlayerShooting: MonoBehaviour
 
     private IEnumerator ShotBullet(Transform target)
     {
-        for (int i = 0; i < 3/*(int)m_playerAttributes.MoreProjectiles*/; i++)
+        for (int i = 0; i < (int)m_playerAttributes.MoreProjectiles; i++)
         {
             m_gunShot.Play();
+            m_shotAudio.Play();
             GameObject instantiated = Instantiate(m_bullet, transform.position, transform.rotation);
             instantiated.GetComponent<Renderer>().material.color = m_helpMaterial.color;
             if (target != null)

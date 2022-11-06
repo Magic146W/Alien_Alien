@@ -19,6 +19,10 @@ TagManager:
   - SkillContainer
   - PlayerData
   - SkillUI
+  - Main_Canvas
+  - Dynamic_Canvas
+  - Audio
+  - Gray
   layers:
   - Default
   - TransparentFX

@@ -317,6 +317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moon_Rocks
       objectReference: {fileID: 0}
+    - target: {fileID: 5591912557996372901, guid: ce586a36df3af374b99043fc22ee5a93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8276194466004598865, guid: ce586a36df3af374b99043fc22ee5a93, type: 3}
       propertyPath: m_RootOrder
       value: 0

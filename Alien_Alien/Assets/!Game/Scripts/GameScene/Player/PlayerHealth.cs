@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using System.Collections;
+using DG.Tweening;
 
 public class PlayerHealth: MonoBehaviour
 {
@@ -17,18 +19,22 @@ public class PlayerHealth: MonoBehaviour
     [SerializeField] private GameObject m_hpUI;
     [SerializeField] private GameObject m_Restart;
     [SerializeField] private GameObject m_healthLayout;
+    [SerializeField] private GameObject m_playerBody;
+    private Material m_playerMaterial;
     private List<GameObject> m_healthList = new List<GameObject>();
 
     private int m_currentMaxHealth = 3;
     private int m_health;
+    private bool m_invincibility;
 
     void Start()
     {
         m_player = GameObject.FindGameObjectWithTag("Player");
         m_playerAttributes = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerAttributes>();
+        m_playerMaterial = m_playerBody.GetComponent<Renderer>().material;
         m_currentMaxHealth = m_playerAttributes.Health;
         m_health = m_currentMaxHealth;
-
+        m_invincibility = false;
         for (int i = 0; i < m_health; i++)
         {
             HealthManagement();
@@ -43,8 +49,11 @@ public class PlayerHealth: MonoBehaviour
         {
             m_enemy = collider.GetComponent<EnemyHealth>();
             int damage = (int)m_enemy.DataForEnemy.BaseDamage;
-            TakeDamage(damage);
-            Destroy(collider.gameObject, 0.1f);           
+            if (!m_invincibility)
+            {
+                TakeDamage(damage);
+            }
+            Destroy(collider.gameObject, 0.1f);
         }
     }
 
@@ -59,6 +68,7 @@ public class PlayerHealth: MonoBehaviour
 
         if (m_health <= 0 && !m_dead)
         {
+
             Death();
             Destroy(m_player);
         }
@@ -66,6 +76,8 @@ public class PlayerHealth: MonoBehaviour
 
     private void TakeDamage(int damage)
     {
+        StartCoroutine(ImmuneToDamage());
+
         m_health -= damage;
         for (int i = 0; i < damage; i++)
         {
@@ -89,7 +101,7 @@ public class PlayerHealth: MonoBehaviour
     }
 
     private void HealthManagement()
-    {       
+    {
         GameObject health = Instantiate(m_hpUI);
         m_healthList.Add(health);
         health.SetActive(true);
@@ -124,5 +136,16 @@ public class PlayerHealth: MonoBehaviour
             health++;
         }
         m_health = health;
+    }
+
+    private IEnumerator ImmuneToDamage()
+    {
+        m_invincibility = true;
+        var playerColor = m_playerMaterial.color;
+        Sequence flashColor = DOTween.Sequence();
+        flashColor.Append(m_playerMaterial.DOColor(Color.black, 0.25f)).Append(m_playerMaterial.DOColor(playerColor, 0.25f).SetLoops(20, LoopType.Restart));
+        yield return new WaitForSeconds(3f);
+        flashColor.Complete();
+        m_invincibility = false;
     }
 }

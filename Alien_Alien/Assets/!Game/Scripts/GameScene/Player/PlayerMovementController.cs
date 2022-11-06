@@ -26,6 +26,7 @@ public class PlayerMovementController: MonoBehaviour
     {
         m_playerAttributes = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerAttributes>();
         m_moveSpeed = m_playerAttributes.Acceleration;
+        m_startMoveSpeed = m_moveSpeed;
         m_maxMoveSpeed = m_playerAttributes.MaxSpeed;
         m_rotateSpeed = m_playerAttributes.RotateSpeed;
         m_maxXAngle = m_playerAttributes.MaxXAngle;
@@ -40,16 +41,16 @@ public class PlayerMovementController: MonoBehaviour
         AnimateBody();
     }
 
-    void UpdateMoveJoystick()
+    private void UpdateMoveJoystick()
     {
         float horizontalMove =  m_moveJoystick.Horizontal;
         float verticalMove = -m_moveJoystick.Vertical;
         Vector2 convertedXY =  ConvertMoveViewToCamera(Camera.main.transform.position,horizontalMove,verticalMove);
         Vector3 direction = new Vector3(convertedXY.x, 0, convertedXY.y).normalized;
-        m_rb.AddForce(direction * m_moveSpeed);   //transform.Translate(direction * moveSpeed, Space.World);
+        m_rb.AddForce(direction * m_moveSpeed * m_playerAttributes.LevelCorrection);   //transform.Translate(direction * moveSpeed, Space.World);
     }
 
-    void UpdateLookJoystick()
+    private void UpdateLookJoystick()
     {
         float horizontalMove =  m_moveJoystick.Horizontal;
         float verticalMove = m_moveJoystick.Vertical;
@@ -80,11 +81,11 @@ public class PlayerMovementController: MonoBehaviour
     private void MaxSpeedControl()
     {
         m_rb.velocity = m_rb.velocity * m_speedBreak;
-        if (m_rb.velocity.magnitude > m_maxMoveSpeed)
+        if (m_rb.velocity.magnitude * m_playerAttributes.LevelCorrection > m_maxMoveSpeed)
         {
             m_rb.velocity = m_rb.velocity * m_lowSpeedBreak;
         }
-        else if (m_rb.velocity.magnitude<1 && m_moveJoystick.Direction == Vector2.zero)
+        else if (m_rb.velocity.magnitude < 1 && m_moveJoystick.Direction == Vector2.zero)
         {
             m_rb.velocity *= 0;
         }
@@ -104,9 +105,9 @@ public class PlayerMovementController: MonoBehaviour
         }
         else
         {
-            if (m_body.eulerAngles.x <= m_maxXAngle+1 && m_body.eulerAngles.x != 0.0f)
+            if (m_body.eulerAngles.x <= m_maxXAngle + 1 && m_body.eulerAngles.x != 0.0f)
             {
-                if (m_body.eulerAngles.x > m_maxXAngle+1 || m_body.eulerAngles.x < 1)
+                if (m_body.eulerAngles.x > m_maxXAngle + 1 || m_body.eulerAngles.x < 1)
                 {
                     rotationX = 0;
                     m_body.rotation = Quaternion.Euler(rotationX, m_body.eulerAngles.y, m_body.eulerAngles.z);
@@ -121,7 +122,7 @@ public class PlayerMovementController: MonoBehaviour
 
     private void UpdateSpeed()
     {
-        if (m_startMoveSpeed+m_playerAttributes.MoveSpeedUp>m_moveSpeed)
+        if (m_startMoveSpeed + m_playerAttributes.MoveSpeedUp > m_moveSpeed)
         {
             m_moveSpeed += m_playerAttributes.MoveSpeedUp;
             m_maxMoveSpeed += m_playerAttributes.MoveSpeedUp;
