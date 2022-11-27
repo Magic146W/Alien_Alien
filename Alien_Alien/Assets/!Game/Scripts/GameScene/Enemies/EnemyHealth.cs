@@ -13,6 +13,7 @@ public class EnemyHealth: MonoBehaviour
     [SerializeField] private Slider m_slider;
     [SerializeField] private Image m_fillImage;
     [SerializeField] private TMP_Text m_damageTakenText;
+    [SerializeField] private GameObject m_healthPickUp;
 
     private Color m_fullHealthColor = Color.magenta;
     private Color m_noHealthColor = Color.black;
@@ -88,10 +89,15 @@ public class EnemyHealth: MonoBehaviour
     }
 
     private void Death()
-    {
+    {       
         var levelCorrection = m_playerAttributes.LevelCorrection;
         if (m_health <= 0 && !m_dead)
         {
+            if (UnityEngine.Random.Range(0,100)<8f)
+            {
+                Instantiate(m_healthPickUp, transform.position, Quaternion.identity);
+            }
+
             m_dead = true;
             if (m_enemyMaterial == null)
                 m_enemyMaterial = gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Renderer>().material;

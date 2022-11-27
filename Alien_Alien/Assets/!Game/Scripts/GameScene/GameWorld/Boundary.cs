@@ -6,10 +6,8 @@ public class Boundary: MonoBehaviour
 {
     private Transform m_player;
     private Transform[] m_boundaries;
-    [SerializeField]
-    private GameObject m_boundaryHolder;
-    [SerializeField]
-    private ParticleSystem m_teleport;
+    [SerializeField] private GameObject m_boundaryHolder;
+    [SerializeField] private ParticleSystem m_teleport;
 
     private void Awake()
     {

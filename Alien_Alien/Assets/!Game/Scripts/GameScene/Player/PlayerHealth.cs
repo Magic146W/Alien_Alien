@@ -92,8 +92,13 @@ public class PlayerHealth: MonoBehaviour
         }
     }
 
-    private void Death()
+    public void Death()
     {
+        foreach (var item in m_healthList)
+        {
+            item.SetActive(false);
+        }
+
         m_TMDeath.SetActive(true);
         m_TMDeath.GetComponent<TextMeshProUGUI>().text = "DEATH";
         m_Restart.SetActive(true);
@@ -127,7 +132,7 @@ public class PlayerHealth: MonoBehaviour
         }
     }
 
-    private void Heal()
+    public void Heal()
     {
         int health = 0;
         foreach (var hp in m_healthList)

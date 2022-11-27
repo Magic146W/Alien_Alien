@@ -492,6 +492,7 @@ MonoBehaviour:
   m_slider: {fileID: 8154935956592216923}
   m_fillImage: {fileID: 3081823022900951321}
   m_damageTakenText: {fileID: 3784593238393120634, guid: 737162de8aabc4f469069614b87a0297, type: 3}
+  m_healthPickUp: {fileID: 3815176325690022002, guid: e7108bca695034242b141e1689c0955a, type: 3}
 --- !u!1001 &7345448412659861928
 PrefabInstance:
   m_ObjectHideFlags: 0

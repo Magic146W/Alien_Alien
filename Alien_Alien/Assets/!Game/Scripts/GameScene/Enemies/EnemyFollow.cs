@@ -32,8 +32,6 @@ public class EnemyFollow : MonoBehaviour
 
     private void ChasePlayer()
     {
-        // stop Follow if shooting type
-        //if (!m_player.dead)
         Vector3 follow = Vector3.MoveTowards(transform.position, m_player.transform.position, m_speed * Time.deltaTime);
         m_rb.MovePosition(follow);
     }
