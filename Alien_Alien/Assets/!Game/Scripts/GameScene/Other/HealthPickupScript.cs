@@ -17,7 +17,6 @@ public class HealthPickupScript: MonoBehaviour
 
     private void OnScale()
     {
-
         transform.DOScale(m_scaleTo, 2f).SetEase(Ease.InOutQuad).OnComplete(()=> {
             transform.DOScale(m_originalScale, 2f).SetEase(Ease.OutElastic).SetDelay(0.8f).OnComplete(OnScale);
         });

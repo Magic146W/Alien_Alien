@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Settings : MonoBehaviour
+public class UI_Settings: MonoBehaviour
 {
     [SerializeField] private GameObject m_mainMenuUI;
     [SerializeField] private Button m_soundButton;
     [SerializeField] private Button m_musicButton;
     [SerializeField] private Button m_backButton;
+    [SerializeField] private JSON_Manager m_json;
     private AudioManager m_audioManager;
     private bool m_soundPlay;
     private bool m_musicPlay;
@@ -17,7 +18,7 @@ public class UI_Settings : MonoBehaviour
     void Start()
     {
         Button btnSound = m_soundButton.GetComponent<Button>();
-        btnSound.onClick.AddListener(ClickSound);       
+        btnSound.onClick.AddListener(ClickSound);
         Button btnMusic = m_musicButton.GetComponent<Button>();
         btnMusic.onClick.AddListener(ClickMusic);
         Button btnBack = m_backButton.GetComponent<Button>();
@@ -30,6 +31,7 @@ public class UI_Settings : MonoBehaviour
         ChangeButtonColor(m_soundButton.GetComponent<Image>());
         m_soundPlay = !m_soundPlay;
         m_audioManager.PlaySounds(m_soundPlay);
+        m_json.SerializeSettings(m_soundPlay, m_musicPlay);
     }
 
     private void ClickMusic()
@@ -37,6 +39,7 @@ public class UI_Settings : MonoBehaviour
         ChangeButtonColor(m_musicButton.GetComponent<Image>());
         m_musicPlay = !m_musicPlay;
         m_audioManager.PlayMusic(m_musicPlay);
+        m_json.SerializeSettings(m_soundPlay, m_musicPlay);
     }
 
     private void ChangeButtonColor(Image btn)
@@ -80,5 +83,4 @@ public class UI_Settings : MonoBehaviour
             m_musicPlay = false;
         }
     }
-
 }

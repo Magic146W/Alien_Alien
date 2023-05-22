@@ -6,16 +6,13 @@ using UnityEngine.UI;
 
 public class LevelUp: MonoBehaviour
 {
-    [SerializeField]
-    private TMP_Text m_currentLevelText;
-    [SerializeField]
-    private TMP_Text m_nextLevelText;
-    [SerializeField]
-    private Image m_fillUpBar;
-    [SerializeField]
-    private GameObject m_skillTab;
+    [SerializeField] private TMP_Text m_currentLevelText;
+    [SerializeField] private TMP_Text m_nextLevelText;
+    [SerializeField] private Image m_fillUpBar;
+    [SerializeField] private GameObject m_skillTab;
+    [SerializeField] private DataToSerialize  m_dataToSerialize;
 
-    private int m_startingPointsToLevel = 20;
+    private int m_startingPointsToLevel = 10;
     private float m_multiplierPoints = 1.5f;
     private int m_pointsToLevel = 0;
     private int m_fillUpBarCorrectionPoints = 0;
@@ -43,8 +40,9 @@ public class LevelUp: MonoBehaviour
         if (m_pointsGameStats.MyPoints >= m_pointsToLevel)
         {
             m_fillUpBarCorrectionPoints = m_pointsToLevel;
-            m_pointsToLevel += CountPointsToLevel();
+            m_pointsToLevel = CountPointsToLevel()+m_pointsToLevel/2;
             m_currentLevel++;
+            m_dataToSerialize.Level = m_currentLevel;
             m_currentLevelText.text = m_currentLevel.ToString();
             m_nextLevelText.text = (m_currentLevel + 1).ToString();
 

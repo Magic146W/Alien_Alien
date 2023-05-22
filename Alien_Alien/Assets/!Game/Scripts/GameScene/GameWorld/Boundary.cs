@@ -5,14 +5,16 @@ using UnityEngine;
 public class Boundary: MonoBehaviour
 {
     private Transform m_player;
+    private PlayerHealth m_playerHealth;
     private Transform[] m_boundaries;
     [SerializeField] private GameObject m_boundaryHolder;
     [SerializeField] private ParticleSystem m_teleport;
 
     private void Awake()
     {
-        m_teleport.Stop();
+        m_teleport.Stop();       
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        m_playerHealth = GameObject.FindGameObjectWithTag("Hurt").GetComponent<PlayerHealth>();
 
         int numberOfBoundaries = m_boundaryHolder.transform.childCount;
         m_boundaries = new Transform[numberOfBoundaries];
@@ -51,6 +53,7 @@ public class Boundary: MonoBehaviour
                 boundaryIndex = 3;
             }
             TeleportPlayer(boundaryIndex);
+            m_playerHealth.TakeBoundaryDamage();
         }
     }
     private void TeleportPlayer(int bIndex)

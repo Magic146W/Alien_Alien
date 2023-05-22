@@ -51,7 +51,7 @@ public class PlayerAttributes: MonoBehaviour
     private float so_ID4_shotSpeedMult = 1f;        //shot speed
     private float so_ID6_extraLife = 0;               //extra life
     private float so_ID8_moveSpeedUp = 0;             //move speed increase to move based actions (acceleration, max speed)
-    private float so_ID9_extraPoints = 10;             //bonus points added to action
+    private float so_ID9_extraPoints = 0;             //bonus points added to action
     private float so_ID11_criticalChance = 0;         //chance to hit extra hard (shoots damage for more)
     private float so_ID12_criticalDamageMult = 1.1f;  //Critical hits hit for more damage
 
@@ -181,7 +181,7 @@ public class PlayerAttributes: MonoBehaviour
         m_dictionaryAttributesProgress.Add(4, new List<float> { 1, 0.95f, 0.9f, 0.85f, 0.8f, 0.7f, 0.6f });
         m_dictionaryAttributesProgress.Add(6, new List<float> { 0, 2, 3, 5 });
         m_dictionaryAttributesProgress.Add(8, new List<float> { 0, 2, 4, 8 });
-        m_dictionaryAttributesProgress.Add(9, new List<float> { 0, 1, 2, 4 });
+        m_dictionaryAttributesProgress.Add(9, new List<float> { 0, 1, 2, 4 }); //unlock double points
         m_dictionaryAttributesProgress.Add(11, new List<float> { 0.5f, 2, 3, 6, 10, 15 });
         m_dictionaryAttributesProgress.Add(12, new List<float> { 1.1f, 1.5f, 1.9f, 2.5f, 3f, 4f });
     }

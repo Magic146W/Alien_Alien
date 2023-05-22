@@ -9,11 +9,10 @@ public class UI_MainMenu: MonoBehaviour
     [SerializeField] private Button m_startButton;
     [SerializeField] private Button m_settingsButton;
     [SerializeField] private Button m_achivementsButton;
-    [SerializeField] private Button m_logButton;
+    [SerializeField] private Button m_exitButton;
     [SerializeField] private GameObject m_mainMenuUI;
     [SerializeField] private GameObject m_settingsUI;
     [SerializeField] private GameObject m_achivementsUI;
-    [SerializeField] private GameObject m_logUI;
 
     void Start()
     {
@@ -23,8 +22,8 @@ public class UI_MainMenu: MonoBehaviour
         btnSettings.onClick.AddListener(ClickSettings);
         Button btnAchivement = m_achivementsButton.GetComponent<Button>();
         btnAchivement.onClick.AddListener(ClickAchivements);
-        Button btnLog = m_logButton.GetComponent<Button>();
-        btnLog.onClick.AddListener(ClickLog);
+        Button btnExit = m_exitButton.GetComponent<Button>();
+        btnExit.onClick.AddListener(ClickExit);
     }
 
     private void ClickStart()
@@ -40,14 +39,13 @@ public class UI_MainMenu: MonoBehaviour
 
     private void ClickAchivements()
     {
-        m_achivementsUI.SetActive(true);   
         HideMainMenu();
+        m_achivementsUI.SetActive(true);   
     }
 
-    private void ClickLog()
+    private void ClickExit()
     {
-        m_logUI.SetActive(true);
-        HideMainMenu();
+        Application.Quit();
     }
 
     private void HideMainMenu()

@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class PlayerMovementController: MonoBehaviour
 {
-    [SerializeField]
-    private FixedJoystick m_moveJoystick;
-    [SerializeField]
-    private Rigidbody m_rb;
-    [SerializeField]
-    private Transform m_body;
+    [SerializeField] private FixedJoystick m_moveJoystick;
+    [SerializeField] private Rigidbody m_rb;
+    [SerializeField] private Transform m_body;
 
     private PlayerAttributes m_playerAttributes;
-
     private float m_startMoveSpeed = 10f;
     private float m_moveSpeed = 10f;
     private float m_maxMoveSpeed = 20f;
@@ -33,31 +29,22 @@ public class PlayerMovementController: MonoBehaviour
         InvokeRepeating("UpdateSpeed", 0, 0.5f);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        UpdateMoveJoystick();
-        UpdateLookJoystick();
+        float horizontalMove =  m_moveJoystick.Horizontal;
+        float verticalMove = m_moveJoystick.Vertical;
+        UpdateMoveJoystick(horizontalMove, verticalMove);
         MaxSpeedControl();
         AnimateBody();
     }
 
-    private void UpdateMoveJoystick()
+    private void UpdateMoveJoystick(float horizontalMove, float verticalMove)
     {
-        float horizontalMove =  m_moveJoystick.Horizontal;
-        float verticalMove = -m_moveJoystick.Vertical;
-        Vector2 convertedXY =  ConvertMoveViewToCamera(Camera.main.transform.position,horizontalMove,verticalMove);
+        Vector2 convertedXY =  ConvertMoveViewToCamera(Camera.main.transform.position,horizontalMove,-verticalMove);
         Vector3 direction = new Vector3(convertedXY.x, 0, convertedXY.y).normalized;
-        m_rb.AddForce(direction * m_moveSpeed * m_playerAttributes.LevelCorrection);   //transform.Translate(direction * moveSpeed, Space.World);
-    }
-
-    private void UpdateLookJoystick()
-    {
-        float horizontalMove =  m_moveJoystick.Horizontal;
-        float verticalMove = m_moveJoystick.Vertical;
-        Vector2 convertedXY =  ConvertMoveViewToCamera(Camera.main.transform.position,horizontalMove,verticalMove);
-        Vector3 direction = new Vector3(convertedXY.x, 0, -convertedXY.y).normalized;
-        Vector3 lookAtPosition = transform.position + direction;
-        transform.LookAt(lookAtPosition);
+        m_rb.AddForce(direction * m_moveSpeed * m_playerAttributes.LevelCorrection);
+        if (direction != Vector3.zero)
+            m_rb.transform.rotation = Quaternion.LookRotation(direction);
     }
 
     private Vector2 ConvertMoveViewToCamera(Vector3 cameraPosition, float horizontal, float vertical)

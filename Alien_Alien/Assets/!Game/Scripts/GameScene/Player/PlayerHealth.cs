@@ -15,19 +15,19 @@ public class PlayerHealth: MonoBehaviour
     private PlayerAttributes m_playerAttributes;
 
     private EnemyHealth m_enemy;
-    [SerializeField] private GameObject m_TMDeath;
     [SerializeField] private GameObject m_hpUI;
-    [SerializeField] private GameObject m_Restart;
+    [SerializeField] private GameObject m_death;
     [SerializeField] private GameObject m_healthLayout;
     [SerializeField] private GameObject m_playerBody;
     private Material m_playerMaterial;
     private List<GameObject> m_healthList = new List<GameObject>();
+    [SerializeField] private FinishPanelManager m_finishPanelManager;
 
     private int m_currentMaxHealth = 3;
     private int m_health;
     private bool m_invincibility;
 
-    void Start()
+    private void Start()
     {
         m_player = GameObject.FindGameObjectWithTag("Player");
         m_playerAttributes = GameObject.FindGameObjectWithTag("PlayerData").GetComponent<PlayerAttributes>();
@@ -99,9 +99,8 @@ public class PlayerHealth: MonoBehaviour
             item.SetActive(false);
         }
 
-        m_TMDeath.SetActive(true);
-        m_TMDeath.GetComponent<TextMeshProUGUI>().text = "DEATH";
-        m_Restart.SetActive(true);
+        m_death.SetActive(true);      
+        m_finishPanelManager.InformationUpdate();
         m_dead = true;
     }
 
@@ -130,6 +129,11 @@ public class PlayerHealth: MonoBehaviour
         {
             m_healthList[i].SetActive(true);
         }
+    }
+
+    public void TakeBoundaryDamage()
+    {
+        TakeDamage(1);
     }
 
     public void Heal()

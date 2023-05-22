@@ -47,7 +47,7 @@ public class EnemyHealth: MonoBehaviour
     private void SetHealthUI()
     {
         m_slider.value = (m_health / m_startingHealth) * 100;
-        m_fillImage.color = Color.magenta;/*Color.Lerp(m_noHealthColor, m_fullHealthColor, m_health / m_startingHealth);*/
+        m_fillImage.color = Color.magenta;
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -71,9 +71,6 @@ public class EnemyHealth: MonoBehaviour
                 {
                     damage *= m_playerAttributes.CriticalDamageMult * levelCorrection;
                     crit = true;
-
-                    Debug.Log("Crit chance: " + m_playerAttributes.CriticalChance + "Crit damage: " + damage);
-
                 }
                 SpawnDamageText(crit, damage);
                 m_health -= damage;
@@ -93,7 +90,7 @@ public class EnemyHealth: MonoBehaviour
         var levelCorrection = m_playerAttributes.LevelCorrection;
         if (m_health <= 0 && !m_dead)
         {
-            if (UnityEngine.Random.Range(0,100)<8f)
+            if (UnityEngine.Random.Range(0,100)<3f)
             {
                 Instantiate(m_healthPickUp, transform.position, Quaternion.identity);
             }
@@ -135,7 +132,7 @@ public class EnemyHealth: MonoBehaviour
     public void BlackHole()
     {
         var shot = m_playerAttributes.ShotDamage * m_playerAttributes.AllDamageMult;
-        float damage = m_startingHealth*0.05f;
+        float damage = m_startingHealth*0.02f;
 
         if (damage > shot * 2)
             damage = shot * 2;

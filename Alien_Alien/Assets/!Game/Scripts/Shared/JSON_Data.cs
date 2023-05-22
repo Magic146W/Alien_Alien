@@ -14,8 +14,8 @@ public class JSON_Data: MonoBehaviour
         private bool musicPlaying;
 
         public Json()
-        { 
-        
+        {
+
         }
 
         public Json(bool sound, bool music)
@@ -37,7 +37,7 @@ public class JSON_Data: MonoBehaviour
         }
     }
 
-    [SerializeField] private UI_Settings m_uiSettings;
+    [SerializeField] private UI_Settings m_uiSettings = null;
     [SerializeField] private AudioManager m_audioManager;
     private bool m_soundPlaying = true;
     private bool m_musicPlaying = true;
@@ -47,10 +47,9 @@ public class JSON_Data: MonoBehaviour
     private void Start()
     {
         //m_uiSettings = gameObject.GetComponent<UI_Settings>();
-        //m_audioManager = gameObject.GetComponent<AudioManager>();
 
-        Json mySettings = new Json(/*m_soundPlaying,m_musicPlaying*/);
-        
+        Json mySettings = new Json();
+
         try
         {
             mySettings = JsonConvert.DeserializeObject<Json>(File.ReadAllText(Application.dataPath + m_jsonPath));
@@ -68,7 +67,8 @@ public class JSON_Data: MonoBehaviour
     private void SetSettings()
     {
         m_audioManager.SetAudio(m_soundPlaying, m_musicPlaying);
-        m_uiSettings.SetUIColor(m_soundPlaying, m_musicPlaying);
+        if (m_uiSettings != null)
+            m_uiSettings.SetUIColor(m_soundPlaying, m_musicPlaying);
     }
 
     public void SerializeSettings(bool soundPlaying, bool musicPlaying)

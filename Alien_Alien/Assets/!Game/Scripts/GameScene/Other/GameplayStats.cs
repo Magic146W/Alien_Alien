@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class GameplayStats: MonoBehaviour
 {
-    [SerializeField]
-    private TMP_Text m_GameplayStatsText;
-    [SerializeField]
-    private int m_selection = 0;
+    [SerializeField] private TMP_Text m_GameplayStatsText;
+    [SerializeField] private int m_selection = 0;
+    [SerializeField] private DataToSerialize  m_dataToSerialize;
 
     private int m_enemyID;
     public int EnemyID
@@ -17,9 +16,9 @@ public class GameplayStats: MonoBehaviour
     }
 
     private int m_enemiesToKill = 10;
-
     private int m_killCountCurrent = 0;
     private int m_killCount = 0;
+
     public int CurrentEnemyIDKills
     {
         get { return m_killCount; }
@@ -54,6 +53,7 @@ public class GameplayStats: MonoBehaviour
             {
                 m_GameplayStatsText.text = "Points: " + m_points;
                 m_pointsCurrent = m_points;
+                m_dataToSerialize.Points = m_pointsCurrent;
             }
         }
         else if (m_selection == 1)
@@ -78,16 +78,18 @@ public class GameplayStats: MonoBehaviour
             {
                 m_GameplayStatsText.text = "Kills: " + m_allKills;
                 m_allKillsCurrent = m_allKills;
+                m_dataToSerialize.Kills = m_allKillsCurrent;
             }
         }
     }
 
     private string CountingEnemyName(int count)
     {
+        m_dataToSerialize.Enemy = count;
         switch (count)
         {
             case 0:
-                return "Triangle enemy killed: " + m_killCount +"/10";
+                return "Triangle enemy killed: " + m_killCount + "/10";
             case 1:
                 return "Square enemy killed: " + m_killCount + "/10";
             case 2:
