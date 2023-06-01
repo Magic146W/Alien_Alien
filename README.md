@@ -1,2 +1,2 @@
 # Alien_Alien
-Game about fighting aliens
+Introducing "Alien Figure," my private Unity project. It's a thrilling game that combines twin-stick shooter mechanics while mixing 3D models into 2D gameplay. Another cool thing about my project is that I changed the "usual" move and shot controls to move and change color. Because in my game you can only defeat enemies if their color is similar to yours. It's a little twist, but it makes the game fun.
